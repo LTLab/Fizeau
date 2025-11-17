@@ -40,7 +40,6 @@ jobs:
       - name: Build
         run: |
           export DEVKITPRO=/opt/devkitpro
-          make -n all
           make all
         shell: bash
       - name: Upload Release Asset
