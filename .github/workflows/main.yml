@@ -15,10 +15,6 @@ jobs:
     container: registry.cn-hangzhou.aliyuncs.com/mozt/devkita64:1.1
 
     steps:
-      - name: Update packages
-        run: |
-          sudo -n apt-get install -y zip p7zip-full
-        shell: bash
       - name: Update latest libnx
         run: |
           git config --global --add safe.directory "*"
@@ -44,6 +40,7 @@ jobs:
       - name: Build
         run: |
           export DEVKITPRO=/opt/devkitpro
+          make -n all
           make all
         shell: bash
       - name: Upload Release Asset
