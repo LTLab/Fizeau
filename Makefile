@@ -17,7 +17,7 @@ all:
 	@$(MAKE) -C sysmodule $(MAKECMDGOALS) --no-print-directory
 	@$(MAKE) -C overlay $(MAKECMDGOALS) --no-print-directory
 
-	@wget $(shell curl -s https://api.github.com/repos/averne/Fizeau/releases/latest|grep 'browser_'|cut -d\" -f4|head -1) -O $(OUT)/Fizeau-latest.zip >/dev/null 2>&1
+	@wget $(shell curl -s https://api.github.com/repos/averne/Fizeau/releases/latest | grep 'browser_download_url' | grep 'Fizeau.*\.zip'|cut -d\" -f4) -O $(CURDIR)/SdOut/Fizeau-latest.zip
 	@unzip $(OUT)/Fizeau-latest.zip -d $(OUT)/ >/dev/null 2>&1
 
 	@rm -rf $(OUT)/config
