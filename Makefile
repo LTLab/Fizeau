@@ -39,7 +39,7 @@ all:
 	@touch $(OUT)/atmosphere/contents/$(APP_TITID)/flags/boot2.flag
 	@cp -f misc/patches/*.ips $(OUT)/atmosphere/exefs_patches/nvnflinger_cmu >/dev/null 2>&1 || :
 
-	@7z a $(OUT)/$(APP_TITLE).zip ./$(OUT)/atmosphere ./$(OUT)/config ./$(OUT)/switch >/dev/null 2>&1
+	@cd $(CURDIR)/SdOut; zip -r -q -9 $(APP_TITLE).zip atmosphere config switch; cd $(CURDIR)
 
 clean:
 	@$(MAKE) -C application clean
